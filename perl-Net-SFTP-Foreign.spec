@@ -80,17 +80,17 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Attributes.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Attributes/Compat.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Backend/Unix.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Backend/Windows.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Buffer.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Common.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Compat.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Constants.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Helpers.pm
-/usr/lib/perl5/vendor_perl/5.28.0/Net/SFTP/Foreign/Local.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Attributes.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Attributes/Compat.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Backend/Unix.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Backend/Windows.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Buffer.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Common.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Compat.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Constants.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Helpers.pm
+/usr/lib/perl5/vendor_perl/5.28.1Net/SFTP/Foreign/Local.pm
 
 %files dev
 %defattr(-,root,root,-)
