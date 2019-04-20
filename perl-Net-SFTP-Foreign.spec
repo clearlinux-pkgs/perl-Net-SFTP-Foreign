@@ -4,7 +4,7 @@
 #
 Name     : perl-Net-SFTP-Foreign
 Version  : 1.90
-Release  : 10
+Release  : 11
 URL      : https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-SFTP-Foreign-1.90.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-SFTP-Foreign-1.90.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libn/libnet-sftp-foreign-perl/libnet-sftp-foreign-perl_1.89+dfsg-1.debian.tar.xz
