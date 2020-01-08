@@ -4,14 +4,15 @@
 #
 Name     : perl-Net-SFTP-Foreign
 Version  : 1.90
-Release  : 11
+Release  : 12
 URL      : https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-SFTP-Foreign-1.90.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-SFTP-Foreign-1.90.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libn/libnet-sftp-foreign-perl/libnet-sftp-foreign-perl_1.89+dfsg-1.debian.tar.xz
-Summary  : Perl SFTP client using the native SSH client application
+Summary  : 'Secure File Transfer Protocol client'
 Group    : Development/Tools
 License  : Artistic-1.0-Perl GPL-2.0
 Requires: perl-Net-SFTP-Foreign-license = %{version}-%{release}
+Requires: perl-Net-SFTP-Foreign-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -24,6 +25,7 @@ SSH client application to establish the connection to the remote host.
 Summary: dev components for the perl-Net-SFTP-Foreign package.
 Group: Development
 Provides: perl-Net-SFTP-Foreign-devel = %{version}-%{release}
+Requires: perl-Net-SFTP-Foreign = %{version}-%{release}
 
 %description dev
 dev components for the perl-Net-SFTP-Foreign package.
@@ -37,18 +39,28 @@ Group: Default
 license components for the perl-Net-SFTP-Foreign package.
 
 
+%package perl
+Summary: perl components for the perl-Net-SFTP-Foreign package.
+Group: Default
+Requires: perl-Net-SFTP-Foreign = %{version}-%{release}
+
+%description perl
+perl components for the perl-Net-SFTP-Foreign package.
+
+
 %prep
 %setup -q -n Net-SFTP-Foreign-1.90
-cd ..
-%setup -q -T -D -n Net-SFTP-Foreign-1.90 -b 1
+cd %{_builddir}
+tar xf %{_sourcedir}/libnet-sftp-foreign-perl_1.89+dfsg-1.debian.tar.xz
+cd %{_builddir}/Net-SFTP-Foreign-1.90
 mkdir -p deblicense/
-cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Net-SFTP-Foreign-1.90/deblicense/
+cp -r %{_builddir}/debian/* %{_builddir}/Net-SFTP-Foreign-1.90/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -58,7 +70,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -67,7 +79,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Net-SFTP-Foreign
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Net-SFTP-Foreign/LICENSE
+cp %{_builddir}/Net-SFTP-Foreign-1.90/LICENSE %{buildroot}/usr/share/package-licenses/perl-Net-SFTP-Foreign/2e3c27fee4f8b7c606df7f86eb519196f444acca
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -80,17 +92,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Attributes.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Attributes/Compat.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Backend/Unix.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Backend/Windows.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Buffer.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Common.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Compat.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Constants.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Helpers.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Net/SFTP/Foreign/Local.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -104,4 +105,18 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Net-SFTP-Foreign/LICENSE
+/usr/share/package-licenses/perl-Net-SFTP-Foreign/2e3c27fee4f8b7c606df7f86eb519196f444acca
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Attributes.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Attributes/Compat.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Backend/Unix.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Backend/Windows.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Buffer.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Common.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Compat.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Constants.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Helpers.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Net/SFTP/Foreign/Local.pm
