@@ -4,7 +4,7 @@
 #
 Name     : perl-Net-SFTP-Foreign
 Version  : 1.93
-Release  : 20
+Release  : 21
 URL      : https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-SFTP-Foreign-1.93.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/S/SA/SALVA/Net-SFTP-Foreign-1.93.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libn/libnet-sftp-foreign-perl/libnet-sftp-foreign-perl_1.89+dfsg-1.debian.tar.xz
@@ -109,14 +109,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Attributes.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Attributes/Compat.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Backend/Unix.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Backend/Windows.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Buffer.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Common.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Compat.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Constants.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Helpers.pm
-/usr/lib/perl5/vendor_perl/5.34.0/Net/SFTP/Foreign/Local.pm
+/usr/lib/perl5/*
